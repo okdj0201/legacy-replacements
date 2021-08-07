@@ -7,6 +7,8 @@ if [ ! -e ${INIT_FILE} ]; then
 	exit 1
 fi
 
+TLDR=`which tldr`
+
 cat <<EOF >> ${INIT_FILE}
 # Settings added by legacy-replacements(https://github.com/okdj0201/legacy-replacements)
 ## nvim
@@ -36,9 +38,8 @@ fi
 ## tldr
 if type "tldr" > /dev/null 2>&1
 then
-    TLDR=`which tldr`
     function tldr(){
-        ${TLDR} $@ | less
+        ${TLDR} \$@ | less
     }
 fi
 

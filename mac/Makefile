@@ -20,3 +20,5 @@ install_tldr:
 	brew install tldr
 install_htop:
 	brew install htop
+setup:
+	../common/bin/setup.sh ${INI_FILE}
