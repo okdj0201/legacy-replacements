@@ -39,7 +39,7 @@ fi
 if type "tldr" > /dev/null 2>&1
 then
     function tldr(){
-        ${TLDR} \$@ | less
+        ${TLDR} \$@ | bat
     }
 fi
 
