@@ -55,4 +55,13 @@ fi
 alias fdstr='fd | xargs rg'
 alias history='history | peco'
 
+## function
+function fdvim(){
+  fd $1 | xargs -t rg --files  | peco --select-1  | xargs -t nvim
+}
+
+function rgvim(){
+  rg -A 5 -B 5 $1 ./*  | peco --select-1  | cut -d':' -f1 | xargs -t nvim
+}
+
 EOF
