@@ -37,8 +37,8 @@ fi
 if type "tldr" > /dev/null 2>&1
 then
     TLDR=`which tldr`
-    function tldr(){
-        ${TLDR} $@ | less
+    function man(){
+        ${TLDR} $@ | bat
     }
 fi
 
@@ -51,5 +51,6 @@ fi
 
 ## aliases
 alias fdstr='fd | xargs rg'
+alias history='history | peco'
 
 EOF

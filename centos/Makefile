@@ -20,6 +20,11 @@ install_all:
 	curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
 	chmod u+x nvim.appimage
 	cp nvim.appimage /usr/local/bin/nvim
+	# peco
+	git clone https://github.com/peco/peco.git
+	cd peco
+	make build
+	cp -pr releases/peco_linux_amd64/peco /usr/local/bin/
 install_fd:
 	yum install -y dpkg
 	wget https://github.com/sharkdp/fd/releases/download/v7.3.0/fd-musl_7.3.0_amd64.deb; sudo dpkg -i fd-musl_7.3.0_amd64.deb
@@ -48,6 +53,11 @@ install_htop:
 	dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 	#dnf update
 	dnf install -y htop
+install_peco:
+	git clone https://github.com/peco/peco.git
+	cd peco
+	make build
+	cp -pr releases/peco_linux_amd64/peco /usr/local/bin/
 clean:
 	rm -rf ./fd* ./bat*
 setup:

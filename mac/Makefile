@@ -6,6 +6,7 @@ install_all:
 	brew install ripgrep
 	brew install exa
 	brew install nvim
+	brew install peco
 install_fd:
 	brew install fd
 install_bat:
@@ -20,3 +21,5 @@ install_tldr:
 	brew install tldr
 install_htop:
 	brew install htop
+install_peco:
+	brew install peco
