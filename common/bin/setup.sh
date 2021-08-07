@@ -38,7 +38,7 @@ fi
 ## tldr
 if type "tldr" > /dev/null 2>&1
 then
-    function tldr(){
+    function man(){
         ${TLDR} \$@ | bat
     }
 fi
