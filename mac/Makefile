@@ -1,0 +1,22 @@
+.PHONY: build run
+
+install_all:
+	brew install fd
+	brew install bat
+	brew install ripgrep
+	brew install exa
+	brew install nvim
+install_fd:
+	brew install fd
+install_bat:
+	brew install bat
+install_ripgrep:
+	brew install ripgrep
+install_exa:
+	brew install exa
+install_nvim:
+	brew install nvim
+install_tldr:
+	brew install tldr
+install_htop:
+	brew install htop
