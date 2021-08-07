@@ -37,7 +37,7 @@ $ make install_fd
 ### Setup
 ```
 $ cd ${centos or mac}
-$ make setup ${INI_FILES}
+$ make setup INI_FILE=${INI_FILE}
 
-# INI_FILES=~/.bashrc or ~/.zshrc
+# INI_FILE=~/.bashrc or ~/.zshrc
 ```

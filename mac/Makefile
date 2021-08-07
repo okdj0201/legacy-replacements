@@ -23,3 +23,5 @@ install_htop:
 	brew install htop
 install_peco:
 	brew install peco
+setup:
+	../common/bin/setup.sh ${INI_FILE}
