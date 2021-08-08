@@ -7,6 +7,7 @@ install_all:
 	brew install exa
 	brew install nvim
 	brew install peco
+	brew install fzf
 install_fd:
 	brew install fd
 install_bat:
@@ -23,5 +24,7 @@ install_htop:
 	brew install htop
 install_peco:
 	brew install peco
+install_fzf:
+	brew install fzf
 setup:
 	../common/bin/setup.sh ${INI_FILE}

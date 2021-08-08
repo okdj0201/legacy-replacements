@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+pwd = ARGV[0]
+pwd = Dir.pwd if !pwd
+pwd = pwd[0..-2] if pwd[-1] =~ /[\\\/]/
+pwd = '/' if pwd == ''
+
+if !File.exist?(pwd) || !File.directory?(pwd)
+  puts "Usage: #{__FILE__} [dir]"
+  exit
+end
+
+if RbConfig::CONFIG['host_os'] =~ /mswin|msys|mingw|cygwin|bccwin|wince|emc/
+  symbol = '\\'
+else
+  symbol = '/'
+end
+
+begin
+  if File.directory?(pwd)
+    # # プレビューなし
+    # # dir = `(echo '../'; echo #{pwd}/; ls -F #{pwd}) | grep / | peco --on-cancel error --select-1`.strip
+    # dir = `(echo '../'; echo #{pwd}/; ls -F #{pwd}) | grep / | fzf --ansi --select-1`.strip
+    # プレビュー付
+    view = "echo #{pwd}#{symbol}{}; echo; ls --color #{pwd}#{symbol}{}"
+    dir = `(echo '../'; echo './'; ls -F #{pwd}) | grep / | fzf --header=#{pwd} --reverse --preview '#{view}' --select-1`.strip
+    case dir
+    when "", "./"
+    when "../"
+      pwd = File.dirname(pwd)
+    else
+      pwd = "#{pwd}#{symbol}#{dir.chop}"
+    end
+  else
+    pwd = File.dirname(pwd)
+  end
+end while $?.exitstatus == 0
+puts pwd

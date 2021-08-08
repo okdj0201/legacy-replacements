@@ -9,6 +9,8 @@
   * nvim
   * tldr
   * htop
+  * peco
+  * fzf
 * Also, you can put some aliases to your init files(.bashrc/zshrc/etc..).
 * Currently, this repository includes only for
   * CentOS8.x

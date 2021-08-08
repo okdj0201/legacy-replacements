@@ -54,6 +54,7 @@ fi
 ## aliases
 alias fdstr='fd | xargs rg'
 alias history='history | peco'
+alias c='cd "`cdp ${1}`"; ls'
 
 ## function
 function fdvim(){
@@ -61,7 +62,13 @@ function fdvim(){
 }
 
 function rgvim(){
-  rg -A 5 -B 5 $1 ./*  | peco --select-1  | cut -d':' -f1 | xargs -t nvim
+  param=`rg -A 5 -B 5 -n $1 ./*  | peco --select-1  | cut -d':' -f1,2 | cut -d'-' -f1,2`
+  fname=`echo ${param} | cut -d':' -f1 | cut -d'-' -f1`
+  line=`echo ${param} | cut -d':' -f2 | cut -d'-' -f2`
+  nvim -c ${line} ${fname}
 }
 
 EOF
+
+cp -pr ./cdp /usr/local/bin
+

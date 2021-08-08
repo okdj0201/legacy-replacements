@@ -25,6 +25,9 @@ install_all:
 	cd peco
 	make build
 	cp -pr releases/peco_linux_amd64/peco /usr/local/bin/
+	# fzf
+	git clone https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install
 install_fd:
 	yum install -y dpkg
 	wget https://github.com/sharkdp/fd/releases/download/v7.3.0/fd-musl_7.3.0_amd64.deb; sudo dpkg -i fd-musl_7.3.0_amd64.deb
@@ -58,6 +61,9 @@ install_peco:
 	cd peco
 	make build
 	cp -pr releases/peco_linux_amd64/peco /usr/local/bin/
+install_fzf:
+	git clone https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install
 clean:
 	rm -rf ./fd* ./bat*
 setup:
