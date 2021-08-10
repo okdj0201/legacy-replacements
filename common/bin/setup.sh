@@ -7,68 +7,7 @@ if [ ! -e ${INIT_FILE} ]; then
 	exit 1
 fi
 
-TLDR=`which tldr`
+cat ../common/bin/ini_file >> ${INI_FILE}
 
-cat <<EOF >> ${INIT_FILE}
-# Settings added by legacy-replacements(https://github.com/okdj0201/legacy-replacements)
-## nvim
-if type "nvim" > /dev/null 2>&1
-then
-    alias vim='nvim'
-fi
-
-## bat
-if type "bat" > /dev/null 2>&1
-then
-    alias cat='bat'
-fi
-
-## ripgrep
-if type "ripgrep" > /dev/null 2>&1
-then
-    alias grep='rg'
-fi
-
-## exa
-if type "exa" > /dev/null 2>&1
-then
-    alias ls='exa -la'
-fi
-
-## tldr
-if type "tldr" > /dev/null 2>&1
-then
-    TLDR=`which tldr`
-    function man(){
-        ${TLDR} \$@ | bat
-    }
-fi
-
-## exa
-if type "htop" > /dev/null 2>&1
-then
-    alias top='htop'
-fi
-
-
-## aliases
-alias fdstr='fd | xargs rg'
-alias history='history | peco'
-alias c='cd "`cdp ${1}`"; ls'
-
-## function
-function fdvim(){
-  fd $1 | xargs -t rg --files  | peco --select-1  | xargs -t nvim
-}
-
-function rgvim(){
-  param=`rg -A 5 -B 5 -n $1 ./*  | peco --select-1  | cut -d':' -f1,2 | cut -d'-' -f1,2`
-  fname=`echo ${param} | cut -d':' -f1 | cut -d'-' -f1`
-  line=`echo ${param} | cut -d':' -f2 | cut -d'-' -f2`
-  nvim -c ${line} ${fname}
-}
-
-EOF
-
-cp -pr ./cdp /usr/local/bin
+cp -pr ../common/bin/cdp /usr/local/bin
 
