@@ -18,10 +18,10 @@ then
     alias grep='rg'
 fi
 
-## exa
-if type "exa" > /dev/null 2>&1
+## eza
+if type "eza" > /dev/null 2>&1
 then
-    alias ls='exa -la'
+    alias ls='eza -la'
 fi
 
 ## tldr
@@ -34,7 +34,7 @@ then
     }
 fi
 
-## exa
+## eza
 if type "htop" > /dev/null 2>&1
 then
     alias top='htop'

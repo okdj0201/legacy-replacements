@@ -4,8 +4,10 @@ install_all:
 	brew install fd
 	brew install bat
 	brew install ripgrep
-	brew install exa
+	brew install eza
 	brew install nvim
+	brew install tldr
+	brew install htop
 	brew install peco
 	brew install fzf
 install_fd:
@@ -14,8 +16,8 @@ install_bat:
 	brew install bat
 install_ripgrep:
 	brew install ripgrep
-install_exa:
-	brew install exa
+install_eza:
+	brew install eza
 install_nvim:
 	brew install nvim
 install_tldr:
