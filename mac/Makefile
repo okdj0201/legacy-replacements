@@ -29,4 +29,4 @@ install_peco:
 install_fzf:
 	brew install fzf
 setup:
-	../common/bin/setup.sh ${INI_FILE}
+	../common/bin/setup.sh ~/.zshrc
