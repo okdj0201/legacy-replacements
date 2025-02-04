@@ -7,7 +7,7 @@ if [ ! -e ${INIT_FILE} ]; then
 	exit 1
 fi
 
-cat ../common/bin/ini_file >> ${INI_FILE}
+cat ../common/bin/ini_file >> ${INIT_FILE}
 
 cp -pr ../common/bin/cdp /usr/local/bin
 
