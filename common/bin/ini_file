@@ -54,7 +54,7 @@ function fdvim(){
 function rgvim () {
         param=`rg -A 5 -B 5 -n $1 ./*  | peco --select-1 `
         line=`echo $param | sed -nE 's/.*[:\-]([0-9]+)[:\-].*/\1/p'`
-        fname=`echo $param |  sed -E 's|(.*\.ya?ml).*|\1|'`
+        fname=`echo $param |   sed -E 's|^(.*)[-:][0-9]+[-:].*$|\1|'`
         nvim -c $line $fname
 }
 
